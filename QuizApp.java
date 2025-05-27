@@ -1,7 +1,9 @@
+
 import java.awt.*;
 import javax.swing.*;
 
 public class QuizApp extends JFrame {
+
     // Quiz data
     private String[] questions = {
         "What is the capital of France?",
@@ -27,9 +29,7 @@ public class QuizApp extends JFrame {
         {"90", "80", "100", "120"},
         {"Leonardo da Vinci", "Pablo Picasso", "Vincent Van Gogh", "Michelangelo"},
         {"What is the speed of light (in km/s)?"},
-        {"300,000", "150,000", "1,080", "3,000"},
-
-    };
+        {"300,000", "150,000", "1,080", "3,000"},};
     private int[] answers = {0, 3, 1, 1, 2, 1, 0, 0, 2, 0, 0, 0}; // Correct answers (index of options)
     private int current = 0;
     private int score = 0;
@@ -53,11 +53,12 @@ public class QuizApp extends JFrame {
     private JLabel subtitleLabel;
 
     private Timer quizTimer;
-    private int timeLeft = 60;
+    private int timeLeft = 120; // 2 minutes for the quiz
+    private static final long serialVersionUID = 1L;
 
     public QuizApp() {
         setTitle("Java Quiz Application");
-        setSize(600, 400);
+        setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new CardLayout());
@@ -84,17 +85,21 @@ public class QuizApp extends JFrame {
         regIdField = new JTextField(15);
         loginButton = new JButton("Login");
 
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         loginPanel.add(nameLabel, gbc);
         gbc.gridx = 1;
         loginPanel.add(nameField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         loginPanel.add(regIdLabel, gbc);
         gbc.gridx = 1;
         loginPanel.add(regIdField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 2; gbc.gridwidth = 2;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
         loginPanel.add(loginButton, gbc);
 
         add(loginPanel, "Login");
@@ -188,7 +193,7 @@ public class QuizApp extends JFrame {
         cl.show(getContentPane(), "Quiz");
         current = 0;
         score = 0;
-        timeLeft = 60;
+        timeLeft = 120;
         timerLabel.setText("Time Left: " + timeLeft + "s");
         startQuizTimer();
         loadQuestion();
@@ -280,3 +285,5 @@ public class QuizApp extends JFrame {
         });
     }
 }
+// This code is a simple Java Swing application that implements a quiz game with a login screen, a welcome screen, and a quiz screen.
+// The quiz consists of multiple-choice questions, and the user can select answers and navigate through the questions.
