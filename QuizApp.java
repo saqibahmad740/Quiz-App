@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class QuizApp extends JFrame {
 
-    // Quiz data
+    
     private String[] questions = {
         "What is the capital of France?",
         "Which language runs in a web browser?",
@@ -15,8 +15,10 @@ public class QuizApp extends JFrame {
         "What year did World War II end?",
         "Which is the fastest land animal?",
         "What is the boiling point of water (°C)?",
-        "Who painted the Mona Lisa?"
+        "Who painted the Mona Lisa?",
+        "What is the speed of light (in km/s)?"
     };
+
     private String[][] options = {
         {"Paris", "London", "Berlin", "Madrid"},
         {"Java", "C", "Python", "JavaScript"},
@@ -28,13 +30,14 @@ public class QuizApp extends JFrame {
         {"Cheetah", "Lion", "Tiger", "Leopard"},
         {"90", "80", "100", "120"},
         {"Leonardo da Vinci", "Pablo Picasso", "Vincent Van Gogh", "Michelangelo"},
-        {"What is the speed of light (in km/s)?"},
-        {"300,000", "150,000", "1,080", "3,000"},};
-    private int[] answers = {0, 3, 1, 1, 2, 1, 0, 0, 2, 0, 0, 0}; // Correct answers (index of options)
+        {"300,000", "150,000", "1,080", "3,000"}
+    };
+
+    private int[] answers = {0, 3, 1, 1, 2, 1, 0, 0, 2, 0, 0};
     private int current = 0;
     private int score = 0;
 
-    // UI Components
+    
     private JLabel questionLabel;
     private JRadioButton[] radioButtons;
     private ButtonGroup group;
@@ -53,9 +56,10 @@ public class QuizApp extends JFrame {
     private JLabel subtitleLabel;
 
     private Timer quizTimer;
-    private int timeLeft = 120; // 2 minutes for the quiz
+    private int timeLeft = 120;
     private static final long serialVersionUID = 1L;
 
+    
     public QuizApp() {
         setTitle("Java Quiz Application");
         setSize(900, 600);
@@ -133,15 +137,13 @@ public class QuizApp extends JFrame {
         quizPanel.setBorder(BorderFactory.createEmptyBorder(20, 40, 20, 40));
 
         JPanel topPanel = new JPanel(new BorderLayout());
-        topPanel.setOpaque(false);
-
         titleLabel = new JLabel("General Knowledge Quiz", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         topPanel.add(titleLabel, BorderLayout.CENTER);
 
-        timerLabel = new JLabel("Time Left: 60s", SwingConstants.RIGHT);
+        timerLabel = new JLabel("Time Left: 120s", SwingConstants.RIGHT);
         timerLabel.setFont(new Font("Arial", Font.BOLD, 18));
-        timerLabel.setForeground(new Color(220, 20, 60));
+        timerLabel.setForeground(Color.RED);
         topPanel.add(timerLabel, BorderLayout.EAST);
 
         quizPanel.add(topPanel, BorderLayout.NORTH);
@@ -285,5 +287,3 @@ public class QuizApp extends JFrame {
         });
     }
 }
-// This code is a simple Java Swing application that implements a quiz game with a login screen, a welcome screen, and a quiz screen.
-// The quiz consists of multiple-choice questions, and the user can select answers and navigate through the questions.
